@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.evidenciafut.ui.home.HomeFragment"
+        android:label="@string/equipo"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_home_to_agregarJugadorFragment"
+            app:destination="@id/agregarJugadorFragment" />
+        <action
+            android:id="@+id/action_nav_home_to_eliminarJugadorFragment"
+            app:destination="@id/eliminarJugadorFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_gallery"
+        android:name="com.example.evidenciafut.ui.gallery.GalleryFragment"
+        android:label="@string/estadisticas"
+        tools:layout="@layout/fragment_gallery" />
+
+    <fragment
+        android:id="@+id/nav_slideshow"
+        android:name="com.example.evidenciafut.ui.slideshow.SlideshowFragment"
+        android:label="@string/partidos"
+        tools:layout="@layout/fragment_slideshow" >
+        <action
+            android:id="@+id/action_nav_slideshow_to_registrarPartidoFragment"
+            app:destination="@id/registrarPartidoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/agregarJugadorFragment"
+        android:name="com.example.evidenciafut.AgregarJugadorFragment"
+        android:label="fragment_agregar_jugador"
+        tools:layout="@layout/fragment_agregar_jugador" >
+        <action
+            android:id="@+id/action_agregarJugadorFragment_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/eliminarJugadorFragment"
+        android:name="com.example.evidenciafut.EliminarJugadorFragment"
+        android:label="fragment_eliminar_jugador"
+        tools:layout="@layout/fragment_eliminar_jugador" >
+        <action
+            android:id="@+id/action_eliminarJugadorFragment_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/registrarPartidoFragment"
+        android:name="com.example.evidenciafut.RegistrarPartidoFragment"
+        android:label="fragment_registrar_partido"
+        tools:layout="@layout/fragment_registrar_partido" >
+        <action
+            android:id="@+id/action_registrarPartidoFragment_to_nav_slideshow"
+            app:destination="@id/nav_slideshow" />
+    </fragment>
+</navigation>
