@@ -35,9 +35,9 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="418dp"
-        android:layout_height="288dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="395dp"
+        android:layout_height="383dp"
+        android:layout_marginTop="16dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -84,7 +84,7 @@
             android:layout_height="wrap_content"
             android:text="Plantilla"
             android:textSize="17dp"
-            android:textStyle="italic"
+            android:textStyle="bold|italic"
 
 
             />

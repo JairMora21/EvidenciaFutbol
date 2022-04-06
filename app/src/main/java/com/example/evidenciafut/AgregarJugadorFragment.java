@@ -80,6 +80,8 @@ public class AgregarJugadorFragment extends Fragment {
         btnRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
                 DbJugadores dbJugadores = new DbJugadores(AgregarJugadorFragment.this.getContext());
                long id = dbJugadores.agregarJugador(txtNombre.getText().toString(),
                         txtApellido.getText().toString(),
