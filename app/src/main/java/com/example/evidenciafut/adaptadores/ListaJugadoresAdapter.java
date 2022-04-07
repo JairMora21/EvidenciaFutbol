@@ -1,5 +1,7 @@
 package com.example.evidenciafut.adaptadores;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,6 +52,8 @@ public class ListaJugadoresAdapter extends RecyclerView.Adapter<ListaJugadoresAd
             viewNombre = itemView.findViewById(R.id.viewNomre);
             viewApellido = itemView.findViewById(R.id.viewApellido);
             viewNumero = itemView.findViewById(R.id.viewNumero);
+
+
 
         }
     }

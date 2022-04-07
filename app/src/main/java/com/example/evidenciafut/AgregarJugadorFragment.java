@@ -80,10 +80,16 @@ public class AgregarJugadorFragment extends Fragment {
         btnRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String espacio = txtNombre.getText().toString();
+                if(espacio.endsWith(" ")){
+                    espacio = txtNombre.getText().toString();
+                } else {
+                    espacio = txtNombre.getText().toString() + " ";
 
-
+                }
                 DbJugadores dbJugadores = new DbJugadores(AgregarJugadorFragment.this.getContext());
-               long id = dbJugadores.agregarJugador(txtNombre.getText().toString(),
+
+               long id = dbJugadores.agregarJugador(espacio,
                         txtApellido.getText().toString(),
                         Integer.parseInt(String.valueOf(txtNumero.getText())));
                if (id>0){

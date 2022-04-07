@@ -4,6 +4,8 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
+import android.widget.EditText;
 
 import androidx.annotation.Nullable;
 
@@ -14,6 +16,9 @@ import java.util.ArrayList;
 public class DbJugadores extends DbHelper {
 
     Context context;
+
+
+
 
     public DbJugadores(@Nullable Context context) {
         super(context);
@@ -38,6 +43,20 @@ public class DbJugadores extends DbHelper {
         }
         return id;
     }
+    public void eliminarJugador(int numero){
+        DbHelper dbHelper = new DbHelper(context);
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+        int cantidad = db.delete(TABLE_JUGADORES,"numero=" + numero,null);
+        db.close();
+
+        if (cantidad >= 1){
+            Log.i("Mensaje","Se elimino con exito");
+        } else{
+            Log.i("Mensaje","No se elimino");
+        }
+
+    }
 
     public ArrayList<Jugadores> mostrarJugadores(){
         DbHelper dbHelper = new DbHelper(context);
@@ -61,5 +80,32 @@ public class DbJugadores extends DbHelper {
             cursorJugadores.close();
         }
         return listaJugadores;
+    }
+
+
+
+    public Jugadores verJugador(int id){
+        DbHelper dbHelper = new DbHelper(context);
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+        Jugadores jugadores = null;
+        Cursor cursorJugadores;
+
+        cursorJugadores = db.rawQuery("SELECT * FROM " + TABLE_JUGADORES + " WHERE id = " + id + " LIMIT 1", null);
+
+
+
+        if (cursorJugadores.moveToFirst()){
+
+                jugadores = new Jugadores();
+                jugadores.setId(cursorJugadores.getInt(0));
+                jugadores.setNombre(cursorJugadores.getString(1));
+                jugadores.setApellido(cursorJugadores.getString(2));
+                jugadores.setNumero(cursorJugadores.getString(3));
+        }
+
+        cursorJugadores.close();
+
+        return jugadores;
     }
 }

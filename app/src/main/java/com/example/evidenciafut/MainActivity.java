@@ -42,10 +42,9 @@ public class MainActivity extends AppCompatActivity {
         if(db != null){
             Log.i("bd", "Se agrego la bd");
         } else {
-            Log.i("bd", "Valio verga");
+            Log.i("bd", "todo bn");
 
         }
-
 
 
         setSupportActionBar(binding.appBarMain.toolbar);
