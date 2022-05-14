@@ -2,11 +2,19 @@ package com.example.evidenciafut;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+
+import com.example.evidenciafut.db.DbJugadores;
+import com.example.evidenciafut.db.DbPartidos;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -58,7 +66,36 @@ public class RegistrarPartidoFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
         return inflater.inflate(R.layout.fragment_registrar_partido, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        EditText txtNombreRival = view.findViewById(R.id.txtNombreRival);
+        EditText txtGolesFavor = view.findViewById(R.id.txtGolesFavor);
+        EditText txtGolesContra = view.findViewById(R.id.txtGolesContra);
+
+        Button btnRegistrarPartido = view.findViewById(R.id.btnRegistrarPartidoResult);
+        btnRegistrarPartido.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DbPartidos dbPartidos = new DbPartidos(RegistrarPartidoFragment.this.getContext());
+              long id =  dbPartidos.agregarPartido(txtNombreRival.getText().toString(),
+                        Integer.parseInt(String.valueOf(txtGolesFavor.getText())),
+                        Integer.parseInt(String.valueOf(txtGolesContra.getText())));
+
+              if (id > 0){
+                  Log.i("Mensaje","Se agrego con exito");
+                  txtNombreRival.setText("");
+                  txtGolesFavor.setText("");
+                  txtGolesContra.setText("");
+              } else {
+                  Log.i("Mensaje", "No se pudo");
+              }
+            }
+        });
+
     }
 }

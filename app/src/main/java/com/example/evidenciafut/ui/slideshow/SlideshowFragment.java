@@ -12,9 +12,18 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.evidenciafut.R;
+import com.example.evidenciafut.adaptadores.ListaPartidosAdapter;
 import com.example.evidenciafut.databinding.FragmentSlideshowBinding;
+import com.example.evidenciafut.db.DbPartidos;
+import com.example.evidenciafut.entidades.Jugadores;
+import com.example.evidenciafut.entidades.Partidos;
+import com.example.evidenciafut.ui.home.HomeFragment;
+
+import java.util.ArrayList;
 
 public class SlideshowFragment extends Fragment {
 
@@ -43,6 +52,17 @@ public class SlideshowFragment extends Fragment {
                 Navigation.findNavController(view).navigate(R.id.registrarPartidoFragment);
             }
         });
+        ArrayList<Partidos> listaArrayPartidos;
+
+        RecyclerView listaPartidos = view.findViewById(R.id.listaPartidos);
+        listaPartidos.setLayoutManager(new LinearLayoutManager(this.getContext()));
+        DbPartidos dbPartidos = new DbPartidos(SlideshowFragment.this.getContext());
+        listaArrayPartidos = new ArrayList<>();
+
+        ListaPartidosAdapter adapter = new ListaPartidosAdapter(dbPartidos.mostrarPartidos());
+        listaPartidos.setAdapter(adapter);
+
+
     }
 
     @Override

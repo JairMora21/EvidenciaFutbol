@@ -42,8 +42,7 @@ public class MainActivity extends AppCompatActivity {
         if(db != null){
             Log.i("bd", "Se agrego la bd");
         } else {
-            Log.i("bd", "todo bn");
-
+            Log.i("bd", "error");
         }
 
 

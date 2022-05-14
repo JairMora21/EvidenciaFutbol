@@ -52,9 +52,6 @@ public class ListaJugadoresAdapter extends RecyclerView.Adapter<ListaJugadoresAd
             viewNombre = itemView.findViewById(R.id.viewNomre);
             viewApellido = itemView.findViewById(R.id.viewApellido);
             viewNumero = itemView.findViewById(R.id.viewNumero);
-
-
-
         }
     }
 }

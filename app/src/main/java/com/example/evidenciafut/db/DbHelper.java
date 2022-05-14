@@ -8,9 +8,11 @@ import androidx.annotation.Nullable;
 
 public class DbHelper extends SQLiteOpenHelper {
 
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
     private static final String DATABASE_NOMBRE = "futbol.db" ;
-    public static final String TABLE_JUGADORES = "t_jugadores" ;
+    public static final String TABLE_JUGADORES = "t_jugadores";
+    public static final String TABLE_PARTIDOS = "t_partidos" ;
+
 
 
     public DbHelper(@Nullable Context context) {
@@ -24,11 +26,24 @@ public class DbHelper extends SQLiteOpenHelper {
                 "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "nombre TEXT NOT NULL," +
                 "apellido TEXT NOT NULL," +
-                "numero INT NOT NULL)" );
+                "numero INT NOT NULL," +
+                "goles INT," +
+                "participaciones)" );
+
+        sqLiteDatabase.execSQL("CREATE TABLE " + TABLE_PARTIDOS + "(" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "rival TEXT NOT NULL," +
+                "golesFavor INT NOT NULL," +
+                "golesContra INT NOT NULL)");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
+
+        sqLiteDatabase.execSQL("DROP TABLE " + TABLE_JUGADORES);
+       // sqLiteDatabase.execSQL("DROP TABLE " + TABLE_PARTIDOS);
+
+        onCreate(sqLiteDatabase);
 
     }
 }

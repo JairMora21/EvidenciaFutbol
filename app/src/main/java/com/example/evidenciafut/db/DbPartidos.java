@@ -5,24 +5,24 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
-import android.widget.EditText;
 
 import androidx.annotation.Nullable;
 
 import com.example.evidenciafut.entidades.Jugadores;
+import com.example.evidenciafut.entidades.Partidos;
 
 import java.util.ArrayList;
 
-public class DbJugadores extends DbHelper {
+public class DbPartidos extends DbHelper {
 
     Context context;
 
-    public DbJugadores(@Nullable Context context) {
+    public DbPartidos(@Nullable Context context) {
         super(context);
         this.context = context;
     }
 
-    public long agregarJugador(String nombre, String apellido, int numero){
+    public long agregarPartido(String rival, int golesFavor, int golesContra){
 
         long id = 0;
         try {
@@ -30,21 +30,21 @@ public class DbJugadores extends DbHelper {
             SQLiteDatabase db = dbHelper.getWritableDatabase();
 
             ContentValues values = new ContentValues();
-            values.put("nombre", nombre);
-            values.put("apellido", apellido);
-            values.put("numero", numero);
+            values.put("rival", rival);
+            values.put("golesFavor", golesFavor);
+            values.put("golesContra", golesContra);
 
-             id = db.insert(TABLE_JUGADORES, null, values);
+            id = db.insert(TABLE_PARTIDOS, null, values);
         } catch (Exception ex){
             ex.toString();
         }
         return id;
     }
-    public void eliminarJugador(int numero){
+    public void eliminarPartido(int id){
         DbHelper dbHelper = new DbHelper(context);
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
-        int cantidad = db.delete(TABLE_JUGADORES,"numero=" + numero,null);
+        int cantidad = db.delete(TABLE_PARTIDOS,"id=" + id,null);
         db.close();
 
         if (cantidad >= 1){
@@ -55,32 +55,32 @@ public class DbJugadores extends DbHelper {
 
     }
 
-    public ArrayList<Jugadores> mostrarJugadores(){
+    public ArrayList<Partidos> mostrarPartidos(){
         DbHelper dbHelper = new DbHelper(context);
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
-        ArrayList<Jugadores> listaJugadores = new ArrayList<>();
-        Jugadores jugadores = null;
-        Cursor cursorJugadores = null;
+        ArrayList<Partidos> listaPartidos = new ArrayList<>();
+        Partidos partidos = null;
+        Cursor cursorPartidos = null;
 
-        cursorJugadores = db.rawQuery("SELECT * FROM " + TABLE_JUGADORES, null);
+        cursorPartidos = db.rawQuery("SELECT * FROM " + TABLE_PARTIDOS, null);
 
-        if (cursorJugadores.moveToFirst()){
+        if (cursorPartidos.moveToFirst()){
             do{
-                jugadores = new Jugadores();
-                jugadores.setId(cursorJugadores.getInt(0));
-                jugadores.setNombre(cursorJugadores.getString(1));
-                jugadores.setApellido(cursorJugadores.getString(2));
-                jugadores.setNumero(cursorJugadores.getString(3));
-                listaJugadores.add(jugadores);
-            } while (cursorJugadores.moveToNext());
-            cursorJugadores.close();
+                partidos = new Partidos();
+                partidos.setId(cursorPartidos.getInt(0));
+                partidos.setRival(cursorPartidos.getString(1));
+                partidos.setGolesFavor(cursorPartidos.getString(2));
+                partidos.setGolesContra(cursorPartidos.getString(3));
+                listaPartidos.add(partidos);
+            } while (cursorPartidos.moveToNext());
+            cursorPartidos.close();
         }
-        return listaJugadores;
+        return listaPartidos;
     }
 
 
-
+/*
     public Jugadores verJugador(int id){
         DbHelper dbHelper = new DbHelper(context);
         SQLiteDatabase db = dbHelper.getWritableDatabase();
@@ -94,15 +94,17 @@ public class DbJugadores extends DbHelper {
 
         if (cursorJugadores.moveToFirst()){
 
-                jugadores = new Jugadores();
-                jugadores.setId(cursorJugadores.getInt(0));
-                jugadores.setNombre(cursorJugadores.getString(1));
-                jugadores.setApellido(cursorJugadores.getString(2));
-                jugadores.setNumero(cursorJugadores.getString(3));
+            jugadores = new Jugadores();
+            jugadores.setId(cursorJugadores.getInt(0));
+            jugadores.setNombre(cursorJugadores.getString(1));
+            jugadores.setApellido(cursorJugadores.getString(2));
+            jugadores.setNumero(cursorJugadores.getString(3));
         }
 
         cursorJugadores.close();
 
         return jugadores;
     }
+    */
+
 }
