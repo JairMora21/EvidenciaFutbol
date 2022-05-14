@@ -1,16 +1,16 @@
 package com.example.evidenciafut.entidades;
 
 public class Partidos {
-    private int id;
+    private String id;
     private String Rival;
     private String golesFavor;
     private String golesContra;
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

@@ -12,10 +12,11 @@
         <entry key="..\:/Users/JAIR/AndroidStudioProjects/EvidenciaFut/app/src/main/res/layout/fragment__modificar.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/JAIR/AndroidStudioProjects/EvidenciaFut/app/src/main/res/layout/fragment_agregar_jugador.xml" value="0.25" />
         <entry key="..\:/Users/JAIR/AndroidStudioProjects/EvidenciaFut/app/src/main/res/layout/fragment_eliminar_jugador.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/JAIR/AndroidStudioProjects/EvidenciaFut/app/src/main/res/layout/fragment_eliminar_partido.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/JAIR/AndroidStudioProjects/EvidenciaFut/app/src/main/res/layout/fragment_gallery.xml" value="0.33" />
         <entry key="..\:/Users/JAIR/AndroidStudioProjects/EvidenciaFut/app/src/main/res/layout/fragment_home.xml" value="0.22" />
-        <entry key="..\:/Users/JAIR/AndroidStudioProjects/EvidenciaFut/app/src/main/res/layout/fragment_registrar_partido.xml" value="0.25" />
-        <entry key="..\:/Users/JAIR/AndroidStudioProjects/EvidenciaFut/app/src/main/res/layout/fragment_slideshow.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/JAIR/AndroidStudioProjects/EvidenciaFut/app/src/main/res/layout/fragment_registrar_partido.xml" value="0.67" />
+        <entry key="..\:/Users/JAIR/AndroidStudioProjects/EvidenciaFut/app/src/main/res/layout/fragment_slideshow.xml" value="0.33" />
         <entry key="..\:/Users/JAIR/AndroidStudioProjects/EvidenciaFut/app/src/main/res/layout/lista_item_jugador.xml" value="0.1" />
         <entry key="..\:/Users/JAIR/AndroidStudioProjects/EvidenciaFut/app/src/main/res/layout/lista_item_partidos.xml" value="0.22" />
         <entry key="..\:/Users/JAIR/AndroidStudioProjects/EvidenciaFut/app/src/main/res/layout/nav_header_main.xml" value="0.20416666666666666" />

@@ -30,7 +30,7 @@ public class ListaPartidosAdapter extends RecyclerView.Adapter<ListaPartidosAdap
     @Override
     public void onBindViewHolder(@NonNull PartidosViewHolder holder, int position) {
 
-        //holder.viewID.setText(listaPartidos.get(position).getId());
+        holder.viewID.setText(listaPartidos.get(position).getId());
         holder.viewRival.setText(listaPartidos.get(position).getRival());
         holder.viewGolesFavor.setText(listaPartidos.get(position).getGolesFavor());
         holder.viewGolesContra.setText(listaPartidos.get(position).getGolesContra());
@@ -48,7 +48,7 @@ public class ListaPartidosAdapter extends RecyclerView.Adapter<ListaPartidosAdap
         TextView viewRival, viewGolesFavor, viewGolesContra, viewID;
         public PartidosViewHolder(@NonNull View itemView) {
             super(itemView);
-           // viewID = itemView.findViewById(R.id.viewID);
+            viewID = itemView.findViewById(R.id.viewID);
             viewRival = itemView.findViewById(R.id.viewRival);
             viewGolesFavor = itemView.findViewById(R.id.viewGolesFavor);
             viewGolesContra = itemView.findViewById(R.id.viewGolesContra);

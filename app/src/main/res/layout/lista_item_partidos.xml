@@ -12,18 +12,33 @@
 
         <ImageView
             android:id="@+id/imageView2"
-            android:layout_width="28dp"
-            android:layout_height="wrap_content"
+            android:layout_width="50dp"
+            android:layout_height="35dp"
             android:layout_weight="2"
             app:srcCompat="@drawable/ic_balon" />
+
+        <TextView
+            android:id="@+id/textVi"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:text="P("
+            android:textSize="18sp" />
+        <TextView
+            android:id="@+id/viewID"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:textSize="16sp"
+            android:layout_weight="2" />
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
             android:layout_weight="1"
-            android:text="Amsterdam  ("
-            android:textSize="16sp" />
+            android:textSize="18sp"
+            android:text=") Amsterdam  ("
+             />
 
 
         <TextView
@@ -65,11 +80,6 @@
             android:layout_weight="1"
             android:textSize="18sp" />
 
-        <TextView
-            android:id="@+id/viewID"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="2" />
 
 
     </LinearLayout>

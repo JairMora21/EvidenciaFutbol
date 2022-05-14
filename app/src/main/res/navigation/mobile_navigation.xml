@@ -32,12 +32,15 @@
         <action
             android:id="@+id/action_nav_slideshow_to_registrarPartidoFragment"
             app:destination="@id/registrarPartidoFragment" />
+        <action
+            android:id="@+id/action_nav_slideshow_to_eliminarPartido"
+            app:destination="@id/eliminarPartido" />
     </fragment>
     <fragment
         android:id="@+id/agregarJugadorFragment"
         android:name="com.example.evidenciafut.AgregarJugadorFragment"
-        android:label="fragment_agregar_jugador"
-        tools:layout="@layout/fragment_agregar_jugador" >
+        android:label="@string/equipo"
+        tools:layout="@layout/fragment_agregar_jugador">
         <action
             android:id="@+id/action_agregarJugadorFragment_to_nav_home"
             app:destination="@id/nav_home" />
@@ -45,8 +48,8 @@
     <fragment
         android:id="@+id/eliminarJugadorFragment"
         android:name="com.example.evidenciafut.EliminarJugadorFragment"
-        android:label="fragment_eliminar_jugador"
-        tools:layout="@layout/fragment_eliminar_jugador" >
+        android:label="@string/equipo"
+        tools:layout="@layout/fragment_eliminar_jugador">
         <action
             android:id="@+id/action_eliminarJugadorFragment_to_nav_home"
             app:destination="@id/nav_home" />
@@ -54,10 +57,19 @@
     <fragment
         android:id="@+id/registrarPartidoFragment"
         android:name="com.example.evidenciafut.RegistrarPartidoFragment"
-        android:label="fragment_registrar_partido"
-        tools:layout="@layout/fragment_registrar_partido" >
+        android:label="Partido"
+        tools:layout="@layout/fragment_registrar_partido">
         <action
             android:id="@+id/action_registrarPartidoFragment_to_nav_slideshow"
+            app:destination="@id/nav_slideshow" />
+    </fragment>
+    <fragment
+        android:id="@+id/eliminarPartido"
+        android:name="com.example.evidenciafut.EliminarPartido"
+        android:label="fragment_eliminar_partido"
+        tools:layout="@layout/fragment_eliminar_partido" >
+        <action
+            android:id="@+id/action_eliminarPartido_to_nav_slideshow"
             app:destination="@id/nav_slideshow" />
     </fragment>
 </navigation>

@@ -45,11 +45,20 @@ public class SlideshowFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         Button btn1 = view.findViewById(R.id.btnRegistrarPartido);
+        Button btn2 = view.findViewById(R.id.btnEliminarParti);
+
 
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Navigation.findNavController(view).navigate(R.id.registrarPartidoFragment);
+            }
+        });
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.eliminarPartido);
+
             }
         });
         ArrayList<Partidos> listaArrayPartidos;

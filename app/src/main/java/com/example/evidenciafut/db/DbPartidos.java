@@ -68,7 +68,7 @@ public class DbPartidos extends DbHelper {
         if (cursorPartidos.moveToFirst()){
             do{
                 partidos = new Partidos();
-                partidos.setId(cursorPartidos.getInt(0));
+                partidos.setId(cursorPartidos.getString(0));
                 partidos.setRival(cursorPartidos.getString(1));
                 partidos.setGolesFavor(cursorPartidos.getString(2));
                 partidos.setGolesContra(cursorPartidos.getString(3));
